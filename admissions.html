@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>帳號管理</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+  <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 分頁標題小圖案 -->
+  <link rel="icon" type="image/png" href="images/account.png">
+
+  </style>
+
+
+
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <div class="py-2 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-9 d-none d-lg-block">
+            <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span>聯絡我們</a>
+            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span>(02) 2905-3985</a>
+            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> fjreview@mail.fju.edu.tw</a>
+          </div>
+          <div class="col-lg-3 text-right">
+            <a href="login.html" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>
+            <a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span>
+              Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <div class="" site-logo>
+            <a href="index.html" class="d-block">
+              <h1>FJU</h1>
+            </a>
+          </div>
+          <div class="mr-auto">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li>
+                  <a href="manager.html" class="nav-link text-left">首頁</a>
+                </li>
+
+                <li class="active">
+                  <a href="admissions.html" class="nav-link text-left">帳號管理</a>
+                </li>
+                <li>
+                  <a href="mate.html" class="nav-link text-left">配稿管理</a>
+                </li>
+                <li>
+                  <a href="online.html" class="nav-link text-left">線上投稿</a>
+                </li>
+              </ul>
+              </ul>
+            </nav>
+
+          </div>
+          <div class="ml-auto">
+            <div class="social-wrap">
+              <a href="#"><span class="icon-facebook"></span></a>
+              &nbsp;&nbsp;
+              <a href="#"><span class="icon-instagram"></span></a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+
+
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
+      <div class="container">
+        <div class="row align-items-end">
+          <div class="col-lg-7">
+            <h2 class="mb-0">帳號管理</h2>
+            <p>新增、修改、刪除、查詢帳號</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="custom-breadcrumns border-bottom">
+      <div class="container">
+        <a href="manager.html">首頁</a>
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+        <span class="current">帳號管理</span>
+      </div>
+    </div>
+
+
+    <!-- <button class="btndownload"><i class="fa fa-download"></i> Download</button>
+    <button class="btn"><i class="fa fa-download"></i> Download</button> -->
+
+    <!-- 帳號管理 -->
+
+    <!-- <div class="site-section">
+      <div class="container">
+
+        <div class="row mb-16"> -->
+  <br>
+    &nbsp;&nbsp; 搜尋：<input type="search" class="light-table-filter" data-table="order-table" placeholder="請輸入關鍵字">
+    <br>
+    <div style="position:absolute;top:445px; left: 1240px;">
+      <a href="add.html"><button type="button" class="btn btn-success">新增帳號</button></a></div>
+<br>
+    <!-- 帳號列表 -->
+    <table id="example" class="table table-hover" cellspacing="0" width="70%">
+
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>帳號</th>
+          <th>密碼</th>
+          <th>權限</th>
+          <th>專業領域</th>
+          <th>執行</th>
+
+        </tr>
+
+      </thead>
+      
+
+      <tbody>
+        <tr>
+          <td>管理者1</td>
+          <td>abc123456</td>
+          <td>abc123456</td>
+          <td>管理者 </td>
+          <td>行銷管理</td>
+          <td> <a href="update.html"><button type="button" class="btn btn-warning">修改</button></a> <button type="button"
+              class="btn btn-danger">刪除</button>
+          </td>
+
+        </tr>
+        <tr>
+          <td>管理者2</td>
+          <td>kitty123</td>
+          <td>kitty123</td>
+          <td>管理者 </td>
+          <td>管理與政策</td>
+          <td> <a href="update.html"><button type="button" class="btn btn-warning">修改</button></a> <button type="button"
+              class="btn btn-danger">刪除</button>
+          </td>
+
+        </tr>
+        <tr>
+          <td>投稿者1</td>
+          <td>doraemon666</td>
+          <td>doraemon666</td>
+          <td>投稿者 </td>
+          <td>統計</td>
+          <td> <a href="update.html"><button type="button" class="btn btn-warning">修改</button></a> <button type="button"
+              class="btn btn-danger">刪除</button>
+          </td>
+
+        </tr>
+        <tr>
+          <td>審稿者1</td>
+          <td>forver2020</td>
+          <td>forver2020</td>
+          <td>審稿者 </td>
+          <td>財務管理</td>
+          <td> <a href="update.html"><button type="button" class="btn btn-warning">修改</button></a> <button type="button"
+              class="btn btn-danger">刪除</button>
+          </td>
+
+        </tr>
+        <tr>
+          <td>投稿者2</td>
+          <td>yimy0640</td>
+          <td>yimy0640</td>
+          <td>投稿者 </td>
+          <td>審計、統計</td>
+          <td> <a href="update.html"><button type="button" class="btn btn-warning">修改</button></a> <button type="button"
+              class="btn btn-danger">刪除</button>
+          </td>
+
+        </tr>
+        <tr>
+          <td>管理者3</td>
+          <td>happy1225</td>
+          <td>happy1225</td>
+          <td>管理者 </td>
+          <td>人力資源管理</td>
+          <td> <a href="update.html"><button type="button" class="btn btn-warning">修改</button></a> <button type="button"
+              class="btn btn-danger">刪除</button>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  </div>
+  <!-- .site-wrap -->
+
+  <!-- loader -->
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#51be78" /></svg></div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.mb.YTPlayer.min.js"></script>
+
+
+
+
+  <script src="js/main.js"></script>
+
+  <!-- 表格的JS -->
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" charset="utf8" src="jquery.dataTables.js"></script>
+  <script type="text/javascript" class="init">
+    $(document).ready(function () {
+      $('#example').DataTable();
+    });
+  </script>
+
+
+  <script>
+    (function (document) {
+      'use strict';
+
+      // 建立 LightTableFilter
+      var LightTableFilter = (function (Arr) {
+
+        var _input;
+
+        // 資料輸入事件處理函數
+        function _onInputEvent(e) {
+          _input = e.target;
+          var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+          Arr.forEach.call(tables, function (table) {
+            Arr.forEach.call(table.tBodies, function (tbody) {
+              Arr.forEach.call(tbody.rows, _filter);
+            });
+          });
+        }
+
+        // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+        function _filter(row) {
+          var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+          row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+
+        return {
+          // 初始化函數
+          init: function () {
+            var inputs = document.getElementsByClassName('light-table-filter');
+            Arr.forEach.call(inputs, function (input) {
+              input.oninput = _onInputEvent;
+            });
+          }
+        };
+      })(Array.prototype);
+
+      // 網頁載入完成後，啟動 LightTableFilter
+      document.addEventListener('readystatechange', function () {
+        if (document.readyState === 'complete') {
+          LightTableFilter.init();
+        }
+      });
+
+    })(document);
+  </script>
+
+</body>
+
+</html>

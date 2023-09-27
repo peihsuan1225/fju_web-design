@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>投稿系統-配稿管理 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 分頁標題小圖案 -->
+    <link rel="icon" type="image/png" href="https://imgur.com/fRv31Ro">
+
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <div class="py-2 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 d-none d-lg-block">
+                        <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span>聯絡我們</a>
+                        <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span>(02) 2905-3985</a>
+                        <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span>
+                            fjreview@mail.fju.edu.tw</a>
+                    </div>
+                    <div class="col-lg-3 text-right">
+                        <a href="login.html" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>
+                        <a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span
+                                class="icon-users"></span>
+                            Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <div class="" site-logo>
+                        <a href="index.html" class="d-block">
+                            <h1>FJU</h1>
+                        </a>
+                    </div>
+                    <div class="mr-auto">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                <li>
+                                    <a href="manager.html" class="nav-link text-left">首頁</a>
+                                </li>
+
+                                <li>
+                                    <a href="admissions.html" class="nav-link text-left">帳號管理</a>
+                                </li>
+                                <li class="active">
+                                    <a href="" class="nav-link text-left">配稿管理</a>
+                                </li>
+                                <li>
+                                    <a href="online.html" class="nav-link text-left">線上投稿</a>
+                                </li>
+                            </ul>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <div class="ml-auto">
+                        <div class="social-wrap">
+                            <a href="#"><span class="icon-facebook"></span></a>
+                            &nbsp;&nbsp;
+                            <a href="#"><span class="icon-instagram"></span></a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4"
+            style="background-image: url('images/bg_1.jpg')">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-7">
+                        <h2 class="mb-0">配稿管理</h2>
+                        <p>依專業領域，選取兩位審稿者審稿</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="custom-breadcrumns border-bottom">
+            <div class="container">
+                <a href="manager.html">首頁</a>
+                <span class="mx-3 icon-keyboard_arrow_right"></span>
+                <span class="current">配稿管理</span>
+            </div>
+        </div>
+
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+
+                    <table id="example" class="table table-hover display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>稿件編號</th>
+                                <th>投稿者</th>
+                                <th>標題</th>
+                                <th>專業領域</th>
+                                <th>審稿者(請Ctrl選取兩位審稿者)</th>
+                                <th>提交</th>
+
+
+                            </tr>
+
+                        </thead>
+                     
+                        <tbody>
+                            <tr>
+                                <td>20200613s01</td>
+                                <td>投稿者1</td>
+                                <td>兔子的跳躍數研究</td>
+                                <td>
+
+
+                                    <script>
+                                        department = new Array();
+                                        department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                        department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                        department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                        department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                                        department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                        department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                        department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                        department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                                        department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                        department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                        department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                        department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                                        department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                                        function renew0(index) {
+                                            for (var i = 0; i < department[index].length; i++)
+                                                document.aa.ab.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                                            document.aa.ab.length = department[index].length;	// 刪除多餘的選項
+
+                                        }
+                                    </script>
+
+                                    <form name="aa">
+                                        <select class="form-control" size=5 onChange="renew0(this.selectedIndex);">
+                                            <option value="管理與政策">管理與政策
+                                            <option value="國際企業">國際企業
+                                            <option value="行銷管理">行銷管理
+                                            <option value="國際貿易">國際貿易
+                                            <option value="生產與作業管理">生產與作業管理
+                                            <option value="統計">統計
+                                            <option value="人力資源管理">人力資源管理
+                                            <option value="數量方法">數量方法
+                                            <option value="資訊管理">資訊管理
+                                            <option value="會計">會計
+                                            <option value="財務管理">財務管理
+                                            <option value="審計">審計
+                                        </select>
+                                </td>
+
+                                <td>
+                                    <select multiple class="form-control" multiple="multiple" name="ab" size=5>
+                                        <option value="">請由左方選取專業領域
+                                    </select>
+
+                                    </form>
+                                </td>
+
+                                <td><button type="button" class="btn btn-info"> 提交 </button></td>
+                            </tr>
+                            <tr>
+                                <td>20191221h03</td>
+                                <td>投稿者2</td>
+                                <td>期望與現實對社會新鮮人的衝擊</td>
+                                <td>
+                                    <div>
+
+                                        <script>
+                                            department = new Array();
+                                            department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                            department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                            department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                            department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                                            department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                            department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                            department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                            department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                                            department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                            department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                            department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                            department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                                            department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                                            function renew1(index) {
+                                                for (var i = 0; i < department[index].length; i++)
+                                                    document.bb.bc.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                                                document.bb.bc.length = department[index].length;	// 刪除多餘的選項
+
+                                            }
+                                        </script>
+
+                                        <form name="bb">
+                                            <select class="form-control" size=5 onChange="renew1(this.selectedIndex);">
+                                                <option value="管理與政策">管理與政策
+                                                <option value="國際企業">國際企業
+                                                <option value="行銷管理">行銷管理
+                                                <option value="國際貿易">國際貿易
+                                                <option value="生產與作業管理">生產與作業管理
+                                                <option value="統計">統計
+                                                <option value="人力資源管理">人力資源管理
+                                                <option value="數量方法">數量方法
+                                                <option value="資訊管理">資訊管理
+                                                <option value="會計">會計
+                                                <option value="財務管理">財務管理
+                                                <option value="審計">審計
+                                            </select>
+                                </td>
+
+                                <td>
+                                    <select multiple class="form-control" multiple="multiple" name="bc" size=5>
+                                        <option value="">請由左方選取專業領域
+                                    </select>
+
+                                    </form>
+                </div>
+                </td>
+
+                <td><button type="button" class="btn btn-info"> 提交 </button></td>
+                </tr>
+                <tr>
+                    <td>20010511f04</td>
+                    <td>投稿者3</td>
+                    <td>懸日出現頻率的統計分析</td>
+                    <td>
+                        <div>
+
+                            <script>
+                                department = new Array();
+                                department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                                department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                                department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                                department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                                department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                                department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                                department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                                function renew2(index) {
+                                    for (var i = 0; i < department[index].length; i++)
+                                        document.cc.cd.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                                    document.cc.cd.length = department[index].length;	// 刪除多餘的選項
+
+                                }
+                            </script>
+
+                            <form name="cc">
+                                <select class="form-control" size=5 onChange="renew2(this.selectedIndex);">
+                                    <option value="管理與政策">管理與政策
+                                    <option value="國際企業">國際企業
+                                    <option value="行銷管理">行銷管理
+                                    <option value="國際貿易">國際貿易
+                                    <option value="生產與作業管理">生產與作業管理
+                                    <option value="統計">統計
+                                    <option value="人力資源管理">人力資源管理
+                                    <option value="數量方法">數量方法
+                                    <option value="資訊管理">資訊管理
+                                    <option value="會計">會計
+                                    <option value="財務管理">財務管理
+                                    <option value="審計">審計
+                                </select>
+                    </td>
+
+                    <td>
+                        <select multiple class="form-control" multiple="multiple" name="cd" size=5>
+                            <option value="">請由左方選取專業領域
+                        </select>
+
+                        </form>
+            </div>
+            </td>
+
+            <td><button type="button" class="btn btn-info"> 提交 </button></td>
+            </tr>
+            <tr>
+                <td>20201103u39</td>
+                <td>投稿者4</td>
+                <td>新型冠狀病毒對全球企業衝擊-以運輸業為例</td>
+                <td>
+                    <div>
+
+                        <script>
+                            department = new Array();
+                            department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                            department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                            department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                            department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                            department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                            department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                            department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                            department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                            department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                            department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                            department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                            department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                            department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                            function renew3(index) {
+                                for (var i = 0; i < department[index].length; i++)
+                                    document.dd.de.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                                document.dd.de.length = department[index].length;	// 刪除多餘的選項
+
+                            }
+                        </script>
+
+                        <form name="dd">
+                            <select class="form-control" size=5 onChange="renew3(this.selectedIndex);">
+                                <option value="管理與政策">管理與政策
+                                <option value="國際企業">國際企業
+                                <option value="行銷管理">行銷管理
+                                <option value="國際貿易">國際貿易
+                                <option value="生產與作業管理">生產與作業管理
+                                <option value="統計">統計
+                                <option value="人力資源管理">人力資源管理
+                                <option value="數量方法">數量方法
+                                <option value="資訊管理">資訊管理
+                                <option value="會計">會計
+                                <option value="財務管理">財務管理
+                                <option value="審計">審計
+                            </select>
+                </td>
+
+                <td>
+                    <select multiple class="form-control" multiple="multiple" name="de" size=5>
+                        <option value="">請由左方選取專業領域
+                    </select>
+
+                    </form>
+        </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+        </tr>
+        <tr>
+            <td>20130903o33</td>
+            <td>投稿者5</td>
+            <td>2012臺北房屋租賃態勢分析</td>
+            <td>
+                <div>
+
+                    <script>
+                        department = new Array();
+                        department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                        department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                        department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                        department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                        department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                        department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                        department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                        department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                        department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                        department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                        department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                        department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                        department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                        function renew4(index) {
+                            for (var i = 0; i < department[index].length; i++)
+                                document.ee.ef.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                            document.ee.ef.length = department[index].length;	// 刪除多餘的選項
+
+                        }
+                    </script>
+
+                    <form name="ee">
+                        <select class="form-control" size=5 onChange="renew4(this.selectedIndex);">
+                            <option value="管理與政策">管理與政策
+                            <option value="國際企業">國際企業
+                            <option value="行銷管理">行銷管理
+                            <option value="國際貿易">國際貿易
+                            <option value="生產與作業管理">生產與作業管理
+                            <option value="統計">統計
+                            <option value="人力資源管理">人力資源管理
+                            <option value="數量方法">數量方法
+                            <option value="資訊管理">資訊管理
+                            <option value="會計">會計
+                            <option value="財務管理">財務管理
+                            <option value="審計">審計
+                        </select>
+            </td>
+
+            <td>
+                <select multiple class="form-control" multiple="multiple" name="ef" size=5>
+                    <option value="">請由左方選取專業領域
+                </select>
+
+                </form>
+    </div>
+    </td>
+
+    <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>19950412d49</td>
+        <td>投稿者6</td>
+        <td>廠房設備汰換率與kpi關係</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew5(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.ff.fg.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.ff.fg.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="ff">
+                    <select class="form-control" size=5 onChange="renew5(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="fg" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>20140329p11</td>
+        <td>投稿者7</td>
+        <td>經濟拋物線探討</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew6(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.gg.gh.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.gg.gh.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="gg">
+                    <select class="form-control" size=5 onChange="renew6(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="gh" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>20200301y22</td>
+        <td>投稿者8</td>
+        <td>大富翁奇蹟</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew7(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.hh.hi.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.hh.hi.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="hh">
+                    <select class="form-control" size=5 onChange="renew7(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="hi" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>19991223r52</td>
+        <td>投稿者9</td>
+        <td>愛情的困局</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew8(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.ii.ij.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.ii.ij.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="ii">
+                    <select class="form-control" size=5 onChange="renew8(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="ij" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>19940808w18</td>
+        <td>投稿者10</td>
+        <td>賽道飄移定律</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew9(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.jj.jk.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.jj.jk.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="jj">
+                    <select class="form-control" size=5 onChange="renew9(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="jk" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>20030623s01</td>
+        <td>投稿者11</td>
+        <td>楊琳琳傳記分析</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew10(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.kk.kl.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.kk.kl.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="kk">
+                    <select class="form-control" size=5 onChange="renew10(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="kl" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    <tr>
+        <td>20200613s01</td>
+        <td>投稿者12</td>
+        <td>社會心理學研究</td>
+        <td>
+            <div>
+
+                <script>
+                    department = new Array();
+                    department[0] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[1] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[2] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[3] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[4] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[5] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[6] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[7] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[8] = ["審稿者1", "審稿者2", "審稿者3", "審稿者4", "審稿者5"];
+                    department[9] = ["審稿者6", "審稿者7", "審稿者8", "審稿者9", "審稿者10"];
+                    department[10] = ["審稿者11", "審稿者12", "審稿者13", "審稿者14"];
+                    department[11] = ["審稿者15", "審稿者16", "審稿者17"];
+                    department[12] = ["審稿者15", "審稿者16", "審稿者17"];
+                    function renew11(index) {
+                        for (var i = 0; i < department[index].length; i++)
+                            document.ll.lm.options[i] = new Option(department[index][i], department[index][i]);	// 設定新選項
+                        document.ll.lm.length = department[index].length;	// 刪除多餘的選項
+
+                    }
+                </script>
+
+                <form name="ll">
+                    <select class="form-control" size=5 onChange="renew11(this.selectedIndex);">
+                        <option value="管理與政策">管理與政策
+                        <option value="國際企業">國際企業
+                        <option value="行銷管理">行銷管理
+                        <option value="國際貿易">國際貿易
+                        <option value="生產與作業管理">生產與作業管理
+                        <option value="統計">統計
+                        <option value="人力資源管理">人力資源管理
+                        <option value="數量方法">數量方法
+                        <option value="資訊管理">資訊管理
+                        <option value="會計">會計
+                        <option value="財務管理">財務管理
+                        <option value="審計">審計
+                    </select>
+        </td>
+
+        <td>
+            <select multiple class="form-control" multiple="multiple" name="lm" size=5>
+                <option value="">請由左方選取專業領域
+            </select>
+
+            </form>
+            </div>
+        </td>
+
+        <td><button type="button" class="btn btn-info"> 提交 </button></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#51be78" /></svg></div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
